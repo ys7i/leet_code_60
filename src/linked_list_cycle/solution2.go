@@ -1,21 +1,14 @@
 package main
 
 func hasCycle2(head *ListNode) bool {
-    nodeMap := map[int][]*ListNode{}
-    node := head
+    hashMap := make(map[*ListNode]struct{})
 
-    for node != nil {
-        list := nodeMap[node.Val]
-        for _, s:= range list {
-            if s == node {
-                return true
-            }
+    for node := head; node != nil; node = node.Next {
+        if _, ok := hashMap[node]; ok {
+            return true
         }
-        nodeMap[node.Val] = append(list, node)
-
-        node = node.Next
+        hashMap[node] = struct{}{}
     }
-
     return false
 }
 
