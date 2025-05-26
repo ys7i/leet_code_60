@@ -5,25 +5,22 @@ type ListNode struct {
     Next *ListNode
 }
 
+func moveNextDigit(l *ListNode) (int, *ListNode) {
+    if l == nil {
+        return 0, nil
+    }
+    return l.Val, l.Next
+}
 
-
-func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+func addTwoNumbers1(l1 *ListNode, l2 *ListNode) *ListNode {
     dummyHead := &ListNode { 0, nil }
     current := dummyHead
     isCarryOver := false
 
     for l1 != nil || l2 != nil || isCarryOver {
-        value1 := 0
-        if l1 != nil {
-            value1 = l1.Val
-            l1 = l1.Next
-        }
-
-        value2 := 0
-        if l2 != nil {
-            value2 = l2.Val
-            l2 = l2.Next
-        }
+        var value1, value2 int
+        value1, l1 = moveNextDigit(l1)
+        value2, l2 = moveNextDigit(l2)
 
         currentValue := value1 + value2
         if isCarryOver {
@@ -41,3 +38,4 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
     }
     return dummyHead.Next
 }
+
