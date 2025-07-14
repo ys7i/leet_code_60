@@ -18,7 +18,7 @@ func firstUniqChar(s string) int {
             continue
         }
 
-        if targetIndex == -1 || targetIndex > index {
+        if targetIndex == -1 || targetIndex > index { 
             targetIndex = index
         }
     }
