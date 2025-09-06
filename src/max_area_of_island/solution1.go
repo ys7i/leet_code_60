@@ -47,5 +47,5 @@ func calcAreaAndRemove(grid[][]int, visitedArea map[[2]int]struct{}, i, j, area 
     return area
 }
 
-// 計算量 O(n * m)
-// 空間複雜度 O(n * m)
+// 時間計算量 O(n * m)
+// 空間計算量 O(n * m)

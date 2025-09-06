@@ -87,3 +87,6 @@ func (uf *UnionFind) Find(i int) int {
     }
     return uf.parents[i]
 }
+
+// 時間計算量 O(n * m)
+// 空間計算量 O(n * m)
